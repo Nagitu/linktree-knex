@@ -23,12 +23,13 @@ class linktreemodel {
     async addLink(nama, links) {
         const data = { name: nama, links: links }
         const addData = await db('linktree_knex').insert(data)
-        return addData[0]
+        return data;
     }
 
     async editLink(id ,nama , links){
         const data = {name : nama , links : links}
         const editData = await db('linktree_knex').update(data).where('id',id)
+        return data
     }
 }
 
